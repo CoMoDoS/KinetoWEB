@@ -21,7 +21,7 @@ const MyNavbar = (props) => {
 
     return (
         <div>
-            <Navbar color="dark"  expand="md">
+            <Navbar color="success" light  expand="md">
                 <NavbarBrand href="/">reactstrap</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -36,7 +36,7 @@ const MyNavbar = (props) => {
                             <DropdownToggle nav caret>
                                 Options
                             </DropdownToggle>
-                            <DropdownMenu right>
+                            <DropdownMenu >
                                 <DropdownItem>
                                     Option 1
                                 </DropdownItem>
@@ -55,6 +55,6 @@ const MyNavbar = (props) => {
             </Navbar>
         </div>
     );
-}
+};
 
 export default MyNavbar;
