@@ -28,7 +28,7 @@ class Login extends React.Component{
 
     handleLogin = (username, password) => {
 
-        this.props.history.push("/home");
+        this.props.history.push("/");
 
     };
 //"3o694cg639o4vrf0ra7esgh8uq"

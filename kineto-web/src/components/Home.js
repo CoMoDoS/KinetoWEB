@@ -2,6 +2,7 @@ import React     from 'react'
 import Timeline from 'react-calendar-timeline'
 import 'react-calendar-timeline/lib/Timeline.css'
 import moment from 'moment'
+import axios from 'axios'
 
 var keys = {
     groupIdKey: "id",
@@ -21,6 +22,10 @@ const groupsDefault = [
     {
         id: 2,
         title: 'group 2'
+    },
+    {
+        id: 3,
+        title: 'group 3'
     }
 ];
 
@@ -67,6 +72,32 @@ class Home extends React.Component{
             defaultTimeStart,
             defaultTimeEnd
         };
+    }
+
+    componentDidMount() {
+        fetch('https://127.0.0.1:44340/api/appointment/all')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                debugger;
+
+                data.forEach(elem =>{
+                    let a = {
+                        id : elem.id,
+                        group : 3,
+                        title : elem.status,
+                        start_time : moment(elem.date),
+                        end_time : moment(elem.date).add(2,"hour")
+                    };
+                    itemsDefault.push(a);
+                    console.log(a);
+                    console.log(itemsDefault);
+                    });
+                this.setState({
+                    items : itemsDefault
+                })
+            });
     }
 
     //
